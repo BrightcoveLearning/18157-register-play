@@ -107,11 +107,6 @@
         overlayContent =
         '<div id="regForm" class="registration-form"><h1 class="registration-form">To view the video, please register or login.</h1><p class="registration-form">First name: <input id="fname" type="text" size="30"></p><p>Last name: <input id="lname" type="text" size="30"></p><p class="registration-form">Email: <input id="email" type="text" size="35"></p><p class="registration-form"><button id="reg" class="registration-form">Register</button><button id="login" class="registration-form">Login</button><button id="noThanks" class="registration-form">No thanks</button></p></div><div id="regPass" class="registration-form" style="display:none;"><p class="registration-form">Choose a password: <input type="password" id="regPassword"></p><p class="registration-form"><button id="submitRegPassword" class="registration-form">Submit</button></p></div><div id="loginPass" class="registration-form" style="display:none;"><p class="registration-form">Enter your password: <input type="password" id="loginPassword"></p><p><button id="submitLoginPassword" class="registration-form">Submit</button></p></div><div id="noThanksMessage" style="display:none;"><p class="registration-form"><strong>Thanks for dropping by anyway!</strong></p></div>';
 
-        // +++ Play video to trigger form display +++
-        myPlayer.on('loadedmetadata', function(){
-          myPlayer.play();
-        });
-
       // +++ Configure the Overlay +++
       // add the overlay content
       myPlayer.overlay({
@@ -121,6 +116,11 @@
           content: overlayContent,
           start: 'play'
         }]
+      });
+
+      // +++ Play video to trigger form display +++
+      myPlayer.on('loadedmetadata', function(){
+        myPlayer.play();
       });
 
       // +++ Get references to form elements, used in form processing +++
